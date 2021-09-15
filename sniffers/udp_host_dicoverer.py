@@ -1,6 +1,10 @@
 import socket
 import os
-
+#not complete, use ARP discoverer
+#(included in this repository with name 
+#"host_discovery_with_scapy_and_arp.py") instead
+#however this method is preferred for quick scan of the
+#network as UDP packets are lighter than ARP requests
 HOST = '192.168.1.45'
 
 if os.name == 'nt':

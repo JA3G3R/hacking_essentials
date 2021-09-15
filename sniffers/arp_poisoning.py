@@ -70,17 +70,13 @@ class Venom:
             else:
                 packets = sniff(iface=self.iface,filter=filter)
                 
-        except KeyboardInterrupt:
+        finally:
             wrpcap("arp_out.pcap",packets)
             print("[+] Got the packets")
             self.arp_poison.terminate()
             self.restore()
             print("Finished")
-        wrpcap("arp_out.pcap",packets)
-        print("[+] Got the packets")
-        self.arp_poison.terminate()
-        self.restore()
-        print("Finished")
+       
     
     def run(self):
         self.arp_poison = threading.Thread(target=self.poison)
